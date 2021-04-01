@@ -19,6 +19,10 @@ config/name="map-generator"
 run/main_scene="res://planet_maps/PlanetSurfaceMap.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+WordGenerator="*res://name_generation/WordGenerator.tscn"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
