@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://planet_maps/HeightMap.gd" type="Script" id=1]
 [ext_resource path="res://sprites/hex_grid.png" type="Texture" id=2]
+[ext_resource path="res://fonts/button_dynamicfont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://planet_maps/gas_planet_surface_gradient.tres" type="Gradient" id=4]
 [ext_resource path="res://planet_maps/PlanetMapController.gd" type="Script" id=5]
 [ext_resource path="res://sprites/grid_square.png" type="Texture" id=8]
@@ -113,6 +114,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SavedMessage" type="ColorRect" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1016.0
+margin_top = 504.0
+margin_right = -872.0
+margin_bottom = 536.0
+color = Color( 0, 0, 0, 0.490196 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SavedMessage"]
+margin_right = 144.0
+margin_bottom = 32.0
+text = "  FILE SAVED..."
+valign = 1
+
 [node name="PlanetName" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -137,10 +157,60 @@ margin_right = -40.0
 margin_bottom = 200.0
 grow_horizontal = 0
 custom_fonts/font = SubResource( 10 )
-text = "Type: Gas
-Size: Huge
-Orbital Debris: Yes"
+text = "Biome: Gas"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UI" type="VBoxContainer" parent="."]
+margin_left = 848.0
+margin_top = 400.0
+margin_right = 947.0
+margin_bottom = 541.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New Name" type="Button" parent="UI"]
+margin_right = 99.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+text = "New Name"
+
+[node name="New Biome" type="Button" parent="UI"]
+margin_top = 29.0
+margin_right = 99.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 3 )
+text = "New Biome"
+
+[node name="New Map" type="Button" parent="UI"]
+margin_top = 58.0
+margin_right = 99.0
+margin_bottom = 83.0
+custom_fonts/font = ExtResource( 3 )
+text = "New Map"
+
+[node name="Random" type="Button" parent="UI"]
+margin_top = 87.0
+margin_right = 99.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 3 )
+text = "Random"
+
+[node name="Save" type="Button" parent="UI"]
+margin_top = 116.0
+margin_right = 99.0
+margin_bottom = 141.0
+custom_fonts/font = ExtResource( 3 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="UI/New Name" to="." method="_on_New_Name_pressed"]
+[connection signal="pressed" from="UI/New Biome" to="." method="_on_New_Biome_pressed"]
+[connection signal="pressed" from="UI/New Map" to="." method="_on_New_Map_pressed"]
+[connection signal="pressed" from="UI/Random" to="." method="_on_Random_pressed"]
+[connection signal="pressed" from="UI/Save" to="." method="_on_Save_pressed"]

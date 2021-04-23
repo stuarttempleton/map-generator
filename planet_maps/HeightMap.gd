@@ -4,6 +4,7 @@ extends TextureRect
 export var colormap: GradientTexture
 const L8_MAX := 255 #8 bit max color
 
+var SeedNumber = -1
 
 export var PlanetGradientMaps = {
 	"Gas":"res://planet_maps/gas_planet_surface_gradient.tres",
@@ -26,7 +27,8 @@ func _generate(_seedNumber, _name, _type):
 		print("World generator seed is negative, choosing a random seed")
 		_seedNumber = randi()
 	
-	print("Building map for ", _name, " seed ",_seedNumber)
+	SeedNumber = _seedNumber
+	print("Building map for ", _name, " seed ",SeedNumber)
 	
 	var planet_texture_gradient = GradientTexture.new()
 	planet_texture_gradient.gradient = load(PlanetGradientMaps[_type])
@@ -36,7 +38,7 @@ func _generate(_seedNumber, _name, _type):
 	new_noise.octaves = texture.noise.octaves
 	new_noise.persistence = texture.noise.persistence
 	new_noise.lacunarity = texture.noise.lacunarity
-	new_noise.seed = _seedNumber
+	new_noise.seed = SeedNumber
 	
 	var new_texture = NoiseTexture.new()
 	new_texture.height = texture.get_height()
