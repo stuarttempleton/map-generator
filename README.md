@@ -1,5 +1,5 @@
 # Map-Generator
- A project to generate multiple types of maps, suitable for table-top games or story-telling, or whatever you like. Currently builds a variety of land masses using perlin noise to generate a height map and a shader gradient to apply meaningful color stops.
+ A project to generate multiple types of maps, suitable for table-top games or story-telling, or whatever you like. Currently builds a variety of land masses using perlin noise to generate a height map and a shader gradient to apply meaningful color stops. The map generation strategy is based on the one used in [Starscan](https://github.com/stuarttempleton/starscan).
  
 ## Install
 Map-Generator is still in development and hasn't had been released yet. If you like, you can build it from source by cloning or downloading this git repository. You're absolutely welcome to do so.
