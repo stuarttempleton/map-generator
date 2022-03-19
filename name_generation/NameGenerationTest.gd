@@ -1,13 +1,9 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 export var WordGeneratorNodePath = ""
 var WordGenerator
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	WordGenerator = get_node(WordGeneratorNodePath)
 	pass # Replace with function body.
